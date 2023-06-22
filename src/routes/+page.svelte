@@ -1,7 +1,7 @@
 <script>
 	import Nav from '$lib/components/Nav.svelte';
 
-	export let locals = ;
+	export let locals = {};
 	console.log(locals);
 </script>
 

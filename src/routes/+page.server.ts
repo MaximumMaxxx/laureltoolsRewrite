@@ -9,3 +9,5 @@ export const actions: Actions = {
         }
     }
 };
+
+export const load = async ({ event }) => event.locals;
