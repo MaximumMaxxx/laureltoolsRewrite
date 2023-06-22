@@ -1,7 +1,6 @@
 <!-- routes/login/+page.svelte -->
 <script>
 	import { goto } from '$app/navigation';
-	import { state } from '../../store';
 
 	let email = '';
 	let password = '';

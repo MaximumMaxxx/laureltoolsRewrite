@@ -1,48 +1,32 @@
 <!-- routes/signup/+page.svelte -->
 <script>
+	export let form;
+	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import { state } from '$lib/store';
 
 	let email = '';
 	let name = '';
 	let password = '';
 	let confirmPassword = '';
 	let error = null;
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		if (password !== confirmPassword) {
-			state.alert({
-				color: 'red',
-				message: 'Passwords do not match'
-			});
-			return;
-		}
-		try {
-			await state.signup(email, password, name);
-			goto('/app');
-		} catch (error) {
-			alert(error.message);
-		}
-	};
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form method="post" use:enhance>
+	{#if form?.description}
+		<span class="text-red-400">{form.description}</span>
+	{/if}
+	{#if form?.succress}
+		<span class="text-green-400">Account created</span>
+	{/if}
 	<h1>Sign Up</h1>
 	<label for="name">Name</label>
-	<input type="text" id="name" name="name" bind:value={name} required />
+	<input type="text" id="name" name="name" required />
 	<label for="email">Email</label>
-	<input type="email" id="email" name="email" bind:value={email} required />
+	<input type="email" id="email" name="email" required />
 	<label for="password">Password</label>
-	<input type="password" id="password" name="password" bind:value={password} required />
+	<input type="password" id="password" name="password" required />
 	<label for="confirm-password">Confirm Password</label>
-	<input
-		type="password"
-		id="confirm-password"
-		name="confirm-password"
-		bind:value={confirmPassword}
-		required
-	/>
+	<input type="password" id="confirm-password" name="confirm-password" required />
 	<input type="submit" value="Sign Up" />
 </form>
 

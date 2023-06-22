@@ -1,4 +1,5 @@
 import { Account, Client } from 'appwrite';
+import { Client as ServerSDK } from 'node-appwrite';
 import { PUBLIC_PROJECT_ID, PUBLIC_API_ENDPOINT } from '$env/static/public';
 
 export async function handle({ event, resolve }) {
