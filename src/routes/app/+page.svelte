@@ -1,18 +1,7 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { state } from '$lib/store';
-	import { onMount } from 'svelte';
-
-	onMount(async () => {
-		await state.checkSession().catch(() => {
-			goto('/login');
-		});
-	});
-	const logout = async () => {
-		await state.logout();
-		goto('/login');
-	};
 </script>
 
 <h1 class="text-center text-4xl">App</h1>
-<button on:click={logout}>Logout</button>
+<p>Welcome to the epic app. Hopefully your logged in</p>
+
+<a href="/" class="mx-2 rounded-sm bg-blue-400 p-1">Back home</a>

@@ -1,25 +1,17 @@
 <!-- routes/login/+page.svelte -->
 <script>
-	import { goto } from '$app/navigation';
+	export let form;
 
 	let email = '';
 	let password = '';
-	let error = null;
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		try {
-			await state.login(email, password);
-			goto('/app');
-		} catch (error) {
-			alert(error.message);
-		}
-	};
 </script>
 
 <div>
 	<h2>Login</h2>
-	<form on:submit|preventDefault={handleSubmit}>
+	<form method="POST">
+		{#if form?.description}
+			<p>{form.description}</p>
+		{/if}
 		<div>
 			<label for="email">Email:</label>
 			<input type="email" id="email" name="email" bind:value={email} required />

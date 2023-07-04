@@ -1,6 +1,7 @@
+import { Account, Client, ID } from 'appwrite';
 import type { Actions } from './$types';
-import { createUser } from '$lib/server/createUser';
 import { fail, redirect } from '@sveltejs/kit';
+import { PUBLIC_API_ENDPOINT, PUBLIC_PROJECT_ID } from '$env/static/public';
 
 export const actions: Actions = {
 	default: async ({ request }) => {
@@ -35,9 +36,13 @@ export const actions: Actions = {
 		}
 
 		try {
-			await createUser(email, password, name);
+			let client = new Client().setEndpoint(PUBLIC_API_ENDPOINT).setProject(PUBLIC_PROJECT_ID);
+			let account = new Account(client);
+
+			await account.create(ID.unique(), email.toString(), password.toString(), name.toString());
 			throw redirect(303, '/login');
 		} catch (err: any) {
+			console.log(err);
 			console.log('Form is invalid');
 			return fail(400, {
 				description: err.message

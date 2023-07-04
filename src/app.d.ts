@@ -7,12 +7,12 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			authed: boolean;
-			appwrite: Appwrite;
-			user: Account;
+			account: any;
+			darkTheme: boolean;
 		}
 		// interface PageData {}
 		// interface Platform {}
 	}
 }
 
-export { };
+export {};

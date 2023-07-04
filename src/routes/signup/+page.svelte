@@ -2,21 +2,11 @@
 <script>
 	export let form;
 	import { enhance } from '$app/forms';
-	import { goto } from '$app/navigation';
-
-	let email = '';
-	let name = '';
-	let password = '';
-	let confirmPassword = '';
-	let error = null;
 </script>
 
 <form method="post" use:enhance>
 	{#if form?.description}
 		<span class="text-red-400">{form.description}</span>
-	{/if}
-	{#if form?.succress}
-		<span class="text-green-400">Account created</span>
 	{/if}
 	<h1>Sign Up</h1>
 	<label for="name">Name</label>
