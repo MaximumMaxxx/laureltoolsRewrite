@@ -5,7 +5,6 @@ import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve }) {
 	// let theme: string | null = null;
-	console.log(`Resolving request on ${event.url.pathname}`);
 
 	const sessionNames = [
 		'a_session_' + PUBLIC_PROJECT_ID.toLowerCase(),
@@ -19,9 +18,7 @@ export async function handle({ event, resolve }) {
 		const account = await AppwriteService.getAccount();
 		event.locals.authed = true;
 		event.locals.account = account;
-		console.log(`You be authed on ${account.name} ${event.url.pathname}`);
 	} catch (err) {
-		console.log(`Not authed on ${event.url.pathname}`);
 		event.locals.authed = false;
 	}
 

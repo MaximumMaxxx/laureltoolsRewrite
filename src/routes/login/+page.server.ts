@@ -86,7 +86,11 @@ export const actions: Actions = {
 				description: err
 			});
 		}
-		// Todo: Make this a redirect
-		throw redirect(303, '/');
+
+		const url = new URL(request.url);
+		const searchParams = new URLSearchParams(url.search);
+		const redirectTo = searchParams.get('redirect');
+
+		throw redirect(303, redirectTo ?? '/');
 	}
 };
