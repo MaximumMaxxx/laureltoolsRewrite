@@ -1,5 +1,4 @@
-import { Account, Client } from 'appwrite';
-import { PUBLIC_PROJECT_ID, PUBLIC_API_ENDPOINT } from '$env/static/public';
+import { PUBLIC_PROJECT_ID } from '$env/static/public';
 import { AppwriteService } from '$lib/AppwriteService';
 import { redirect } from '@sveltejs/kit';
 

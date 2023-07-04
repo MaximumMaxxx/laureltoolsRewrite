@@ -36,11 +36,11 @@
 <Switch
 	bind:checked={toggled}
 	on:click={handleChangeTheme}
-	class="relative grid h-20 grid-cols-1 grid-rows-1 items-center justify-items-center rounded-full border-2 border-solid border-red-700 bg-emerald-200 transition-all duration-75 dark:bg-emerald-800"
+	class="relative grid h-20 grid-cols-1 grid-rows-1 items-center justify-items-center rounded-full border-2 border-solid border-slate-700 bg-emerald-300 transition-all duration-75 dark:border-slate-300 dark:bg-emerald-800"
 	style={`height: ${height / 4}rem; width: ${width / 4}rem`}
 >
 	<span
-		class="absolute flex items-center justify-center rounded-full bg-emerald-800 transition-colors dark:bg-emerald-200"
+		class="absolute flex items-center justify-center rounded-full bg-emerald-800 transition-colors dark:bg-emerald-300"
 		style="transform: TranslateX({transformSize}rem); height: {innerSize /
 			4}rem; width: {innerSize / 4}rem;"
 	>

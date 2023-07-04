@@ -1,7 +1,4 @@
-import type { Action } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-
-export const actions: Action = {
+export const actions = {
 	setTheme: async ({ url, cookies }) => {
 		const theme = url.searchParams.get('theme');
 
@@ -11,8 +8,4 @@ export const actions: Action = {
 			});
 		}
 	}
-};
-
-export const load: PageServerLoad = async ({ locals }) => {
-	return locals;
 };
