@@ -10,6 +10,8 @@ export async function handle({ event, resolve }) {
 		'a_session_' + PUBLIC_PROJECT_ID.toLowerCase() + '_legacy'
 	];
 
+	console.log(event.cookies.getAll());
+
 	const hash = event.cookies.get(sessionNames[0]) ?? event.cookies.get(sessionNames[1]) ?? '';
 	AppwriteService.setSession(hash);
 

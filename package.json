@@ -37,7 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.1",
+		"@sveltejs/adapter-vercel": "^0.0.3",
 		"iconify-icon": "^1.0.8",
 		"prettier-plugin-tailwindcss": "^0.3.0"
 	}
