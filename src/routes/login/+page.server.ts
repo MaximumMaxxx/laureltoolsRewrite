@@ -99,7 +99,7 @@ export const actions = {
 		// Thus you have to set a custom domain for appwrite and then it'll be happy
 
 		const redir = await fetch(
-			`${PUBLIC_API_ENDPOINT}/account/sessions/oauth2/discord?success=http://localhost:5173/`,
+			`${PUBLIC_API_ENDPOINT}/account/sessions/oauth2/discord?success=http://${PUBLIC_SSR_HOSTNAME}/`,
 			{
 				headers: {
 					'X-Appwrite-Project': PUBLIC_PROJECT_ID
